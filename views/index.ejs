@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Book Notes</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <div class="logo" onclick="window.location.href='/'">My Book Notes</div>
+            <ul class="nav-links">
+                <li><a href="/?sort=rating">Rank by Rating</a></li>
+                <li><a href="/?sort=recency">Rank by Recency</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="book-list">
+            <h1>Books I've Read</h1>
+
+            <ul class="book-list">
+                <% bookList.forEach(book=> { %>
+                    <li class="book-item">
+                        <!-- Image Section -->
+                        <div class="book-top-right">
+                            <img src="<%= book.url %>" alt="Book Cover" class="book-top-left">
+                        </div>
+
+                        <!-- Book Details Section -->
+                        <div class="details">
+                            <h2>
+                                <%= book.title %>
+                            </h2>
+                            <p class="release-date">Released: <%= book.readt_date %>
+                                    <!-- Ensure this matches your object property -->
+                            </p>
+                            <p class="rating">Rating: <%= book.rate %>
+                                    <!-- Ensure 'rate' is a property of your object -->
+                            </p>
+                            <p class="description">
+                                <%= book.description %>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi neque eius nihil!
+                                    Perspiciatis dolores culpa ipsum atque qui laboriosam labore libero illo. Est quasi
+                                    voluptatibus itaque illo qui tempora magni, amet dicta esse, illum officiis, aperiam
+                                    exercitationem! Iusto corrupti ea veniam iure, animi saepe amet quis culpa omnis
+                                    eos. Omnis?
+                            </p>
+                            <a href="#" class="read-more">Read more...</a>
+                        </div>
+                    </li>
+                    <% }) %>
+            </ul>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Book Notes. All rights reserved. | <a href="#">Contact Us</a></p>
+    </footer>
+</body>
+
+</html>

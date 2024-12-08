@@ -1,0 +1,214 @@
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+header {
+  background-color: rgb(238, 236, 236);
+  padding: 0.3rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid black;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #38bdf8; /* Vibrant blue hover */
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Main Content */
+main {
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.book-list h1 {
+  font-size: 2.2rem;
+  margin: 2rem auto;
+  color: #1e293b; /* Deep navy */
+  text-align: center;
+  font-weight: 600;
+}
+
+.book-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.book-list li {
+  background: #fff;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid;
+}
+
+.book-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.book-list img {
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.book-list h2 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: #2d3748; /* Dark gray */
+}
+
+.release-date {
+  font-size: 0.9rem;
+  color: #64748b; /* Muted gray */
+}
+
+.description {
+  font-size: 1rem;
+  color: #4b5563; /* Gray text */
+  margin: 1rem 0;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #fbbf24; /* Yellow for stars */
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: #2563eb; /* Darker blue */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #1e293b;
+  color: #9ca3af;
+  margin-top: 3rem;
+}
+
+footer a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* My CSS  */
+.list-item {
+  border: 2px solid black;
+}
+.list-item > * {
+  border: 2px solid black;
+}
+/* Book item layout */
+.book-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.book-item img {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.book-top-right {
+  float: left; /* This will make the element float to the left */
+  margin-right: 1rem; /* Adjust spacing between the image and the text */
+}
+
+/* Ensure that the text block doesn't overlap with the floated element */
+.book-item .details {
+  overflow: hidden; /* Clearfix for the floated element */
+}
+
+.book-item .details h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.book-item .details .release-date,
+.book-item .details .rating {
+  font-size: 1rem;
+  color: #888;
+}
