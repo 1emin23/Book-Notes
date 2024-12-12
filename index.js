@@ -3,6 +3,9 @@ import pg from "pg";
 import dotenv from "dotenv";
 
 dotenv.config();
+const app = express();
+const port = 3000;
+app.use(express.static("public"));
 
 const db = new pg.Client({
   user: process.env.DB_USER,
@@ -30,11 +33,6 @@ function getFormattedDate() {
   return `${day}-${month}-${year}`;
 }
 
-const app = express();
-const port = 3000;
-
-app.use(express.static("public"));
-
 app.get("/", async (req, res) => {
   const sortBy = req.query.sort;
   let query = "SELECT * FROM books"; // Default query
@@ -52,6 +50,13 @@ app.get("/", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+app.get("/detail/:id", async (req, res) => {
+  const { id } = req.params;
+  const response = await db.query("SELECT * FROM books WHERE id = $1", [id]);
+  const bookDetails = response.rows[0];
+  res.render("details.ejs", { book_detail: bookDetails });
 });
 
 app.listen(port, () => {

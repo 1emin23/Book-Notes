@@ -4,33 +4,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Notes</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Book Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #007bff;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .book-info {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .book-cover img {
+            max-width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-details {
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .book-details h2 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #343a40;
+        }
+
+        .book-details p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+
+        .button-group a {
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #007bff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button-group a:hover {
+            background-color: #0056b3;
+        }
+
+        .notes-section {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .notes-section h3 {
+            font-size: 22px;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .notes-box {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            resize: none;
+        }
+
+        .notes-box:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    </style>
 </head>
 
 <body>
+
     <header>
-        <nav>
-            <div class="logo">My Book Notes</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Back to List</a></li>
-            </ul>
-        </nav>
+        <h1>Book Details</h1>
+        <a href="/">Back to Main</a>
     </header>
 
-    <main>
-        <section class="book-details">
-            <h1>Book Title 1</h1>
-            <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
-            <p><strong>Notes:</strong></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia metus non nisi viverra, at
-                efficitur urna fermentum.</p>
-        </section>
-    </main>
+    <div class="container">
+        <div class="book-info">
+            <div class="book-cover">
+                <img src=" <%= book_detail.url %> " alt="Book Cover">
+            </div>
 
-    <footer>
-        <p>&copy; 2024 My Book Notes. All rights reserved.</p>
-    </footer>
+            <div class="book-details">
+                <h2>
+                    <%= book_detail.title %>
+                </h2>
+                <p><strong>Released:</strong>
+                    <%= book_detail.readt_date %>
+                </p>
+                <p><strong>Rating:</strong>
+                    <%= book_detail.rate %>
+                </p>
+                <p>
+                    <%= book_detail.description %>
+                </p>
+
+                <div class="button-group">
+                    <a href="/">Back to List</a>
+                    <a href="#">Edit Notes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-section">
+            <h3>My Notes</h3>
+            <p>
+                <%= book_detail.my_notes %>
+            </p>
+        </div>
+    </div>
+
 </body>
 
 </html>
